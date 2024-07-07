@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
             link.addEventListener('click', (event) => {
                 event.preventDefault();
                 const page = link.getAttribute('data-page');
-                loadPage(page);
+                const title = link.getAttribute('data-title');
+                loadPage(page, title);
             });
         });
     });
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadComponent("footer", "components/footer.html");
 
     // Load the initial page content
-    loadPage('home');
+    loadPage('home', 'Accueil | CaninCompris');
 });
 
 function loadComponent(id, file, callback) {
@@ -24,11 +25,12 @@ function loadComponent(id, file, callback) {
         });
 }
 
-function loadPage(page) {
+function loadPage(page, title) {
     fetch(`pages/${page}.html`)
         .then(response => response.text())
         .then(data => {
             document.getElementById('content').innerHTML = data;
+            document.title = title; // Update the document title
             if (page === 'home') {
                 initializeCarousel();
             }
