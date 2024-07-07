@@ -183,13 +183,13 @@ nav {
 }
 
 /* Header for 'À Propos' Page */
-.header-propos {
+.header-about {
     background-color: #D6B3E1;
     padding: 2rem 0;
     text-align: center;
 }
 
-.header-propos h1 {
+.header-about h1 {
     margin-bottom: 1rem;
     font-size: 2.5rem;
     color: #381A57;
@@ -200,6 +200,7 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    flex-wrap: wrap; /* Ajouté pour permettre l'enroulement en mode mobile */
 }
 
 .header-content .text-content {
@@ -233,30 +234,32 @@ main {
 }
 
 /* 'Mes Chiens' Section */
-.mes-chiens {
+.my-dogs {
     text-align: center;
 }
 
-.mes-chiens h2 {
+.my-dogs h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.chiens-content {
+.dogs-content {
     display: flex;
     justify-content: space-around;
     gap: 2rem;
+    flex-wrap: wrap; /* Ajouté pour permettre l'enroulement en mode mobile */
 }
 
-.chien {
+.dog {
     background-color: #FFC3C3;
     padding: 1rem;
     border-radius: 10px;
-    width: 200px;
+    width: 100%; /* Ajusté pour occuper toute la largeur en mode mobile */
+    max-width: 200px; /* Limite la largeur maximale en mode bureau */
     text-align: center;
 }
 
-.chien .photo {
+.dog .photo {
     background-color: #FF8C8C;
     height: 150px;
     border-radius: 10px;
@@ -278,8 +281,9 @@ footer {
 footer .footer-content {
     display: flex;
     justify-content: center;
-    gap: 20em; /* Ajusté pour espacer les icônes de manière uniforme */
+    gap: 20rem; /* Ajusté pour espacer les icônes de manière uniforme */
     margin-bottom: 1rem;
+    flex-wrap: wrap; /* Permet aux icônes de se réorganiser sur plusieurs lignes si nécessaire */
 }
 
 footer .social-icon {
@@ -302,4 +306,33 @@ footer .footer-bottom {
 footer .footer-bottom a {
     color: #000;
     text-decoration: none;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 900px) {
+    footer .footer-content {
+        gap: 5rem; /* Réduire l'écart entre les icônes sur les petits écrans */
+    }
+
+    footer .social-icon {
+        font-size: 3.2rem;
+    }
+
+    footer .social-icon i {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 450px) {
+    footer .footer-content {
+        gap: 10rem; /* Réduire l'écart entre les icônes sur les petits écrans */
+    }
+
+    footer .social-icon {
+        font-size: 3.2rem;
+    }
+
+    footer .social-icon i {
+        font-size: 5.5rem;
+    }
 }
