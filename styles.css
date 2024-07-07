@@ -277,14 +277,22 @@ footer {
 
 footer .footer-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20em; /* Ajusté pour espacer les icônes de manière uniforme */
     margin-bottom: 1rem;
 }
 
-footer .social {
+footer .social-icon {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 10px;
+}
+
+footer .social-icon i {
+    font-size: 2rem;
 }
 
 footer .footer-bottom {
