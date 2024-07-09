@@ -56,7 +56,6 @@ nav {
 }
 
 /* Logo */
-
 .logo-container {
     position: absolute;
     top: 50%;
@@ -110,8 +109,6 @@ nav {
 }
 
 /* Paw */
-
-
 @keyframes stamp {
     0%, 100% { opacity: 0; }
     10% { opacity: 1; }
@@ -229,7 +226,35 @@ nav {
     transform: translate(calc(50% + (10px / 2)), calc(75% + (10px / 2 * 1.732)));
 }
 
+/* Home Description Section */
+.home-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+    text-align: center;
+}
 
+.home-description h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.home-description .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.home-description .bubble {
+    background-color: #D6B3E1;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
 
 /* Header for 'À Propos' Page */
 .header-about {
@@ -385,4 +410,5 @@ footer .footer-bottom a {
         font-size: 5.5rem;
     }
 }
+
 

@@ -4,8 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
             link.addEventListener('click', (event) => {
                 event.preventDefault();
                 const page = link.getAttribute('data-page');
-                const title = link.getAttribute('data-title');
-                loadPage(page, title);
+                loadPage(page);
             });
         });
 
@@ -15,8 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
             togglePage();
         });
 
-        // Load the initial page content
-        loadPage('home', 'Accueil | CaninCompris');
+        // Load all sections initially
+        loadPage('home');
+        loadPage('about');
+        loadPage('contact');
     });
 
     loadComponent("footer", "components/footer.html");
@@ -31,17 +32,30 @@ function loadComponent(id, file, callback) {
         });
 }
 
-function loadPage(page, title) {
+function loadPage(page) {
     fetch(`pages/${page}.html`)
         .then(response => response.text())
         .then(data => {
-            document.getElementById('content').innerHTML = data;
-            document.title = title; // Update the document title
-            updateLogoButton(page); // Update the logo button behavior
+            document.getElementById(page).innerHTML = data;
+            document.getElementById(page).setAttribute('data-title', getPageTitle(page)); // Set the title attribute for each section
+            updateLogoButton(page); // Update the logo button behavior if necessary
             if (page === 'home') {
                 initializeCarousel();
             }
         });
+}
+
+function getPageTitle(page) {
+    switch(page) {
+        case 'home':
+            return 'Accueil | CaninCompris';
+        case 'about':
+            return 'À Propos | CaninCompris';
+        case 'contact':
+            return 'Contact | CaninCompris';
+        default:
+            return 'CaninCompris';
+    }
 }
 
 // function updateLogoButton(currentPage) {

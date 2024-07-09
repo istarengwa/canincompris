@@ -45,23 +45,27 @@
 </head>
     
 <body>
-    <div id="navbar"></div>
-    <main id="content"></main>
-    <footer id="footer"></footer>
-    <script src="script.js"></script>
-
-    <script>
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js')
-              .then(registration => {
-                console.log('Service Worker enregistré avec succès :', registration);
-              })
-              .catch(error => {
-                console.log('Enregistrement du Service Worker a échoué :', error);
-              });
-          });
-        }
-      </script>      
+  <div id="navbar"></div>
+  <main id="content">
+      <div id="home"></div>
+      <div id="about"></div>
+      <div id="contact"></div>
+      <!-- Add more divs as needed for each page -->
+  </main>
+  <footer id="footer"></footer>
+  <script src="script.js"></script>
+  <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('Service Worker enregistré avec succès :', registration);
+            })
+            .catch(error => {
+              console.log('Enregistrement du Service Worker a échoué :', error);
+            });
+        });
+      }
+    </script>      
 </body>
 </html>
