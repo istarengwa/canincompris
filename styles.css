@@ -151,36 +151,85 @@ nav {
 .loader .paw:nth-child(9) { transform: rotate(288deg) translateX(50px) rotate(180deg); animation-delay: 4s; }
 .loader .paw:nth-child(10) { transform: rotate(324deg) translateX(50px) rotate(180deg); animation-delay: 4.5s; }
 
-/* Carousel */
-.carousel {
+/* Hexagon Wrapper */
+.hexagon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15rem; /* Ajouter de l'espace en bas */
+}
+
+/* Container */
+.container {
     position: relative;
-    max-width: 600px;
-    margin: 0 auto;
+    /* to get a regular hexagon with clip-path use the same scale, width is sqrt(3) / 2 of the height  */
+    width: calc(260px * 0.866);
+    height: 260px;
 }
 
-.carousel .slides {
-    display: flex; /* Modification pour afficher les slides en ligne */
+.box {
     overflow: hidden;
-    border: 2px solid #9F82AC;
-    border-radius: 10px;
-}
-
-.carousel .slide {
-    min-width: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    display: block;
+    height: 100%;
+    background: lightblue;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 }
 
-.carousel-text {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    color: #000;
-    text-align: center;
+.box img {
+    transform-origin: 50% 50%;
+    object-fit: cover;
+    transition: all .5s ease-out;
 }
+
+.box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .45);
+    transition: all .5s ease-out;
+}
+
+.box:hover img {
+    transform: scale(1.2);
+}
+
+.box:hover::after {
+    background: rgba(0, 0, 0, 0);
+}
+
+.box2.box {
+    transform: translate(calc(-50% - (10px / 2)), calc(-75% - (10px / 2 * 1.732)));
+}
+
+.box3.box {
+    transform: translate(calc(50% + (10px / 2)), calc(-75% - (10px / 2 * 1.732)));
+}
+
+.box4.box {
+    transform: translate(calc(-100% - 10px), 0);
+}
+
+.box5.box {
+    transform: translate(calc(100% + 10px), 0);
+}
+
+.box6.box {
+    transform: translate(calc(-50% - (10px / 2)), calc(75% + (10px / 2 * 1.732)));
+}
+
+.box7.box {
+    transform: translate(calc(50% + (10px / 2)), calc(75% + (10px / 2 * 1.732)));
+}
+
+
 
 /* Header for 'À Propos' Page */
 .header-about {
@@ -336,3 +385,4 @@ footer .footer-bottom a {
         font-size: 5.5rem;
     }
 }
+

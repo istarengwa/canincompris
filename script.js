@@ -44,43 +44,22 @@ function loadPage(page, title) {
         });
 }
 
-function updateLogoButton(currentPage) {
-    const logoButton = document.getElementById('logo-button');
-    if (currentPage === 'home') {
-        logoButton.setAttribute('data-page', 'about');
-        logoButton.setAttribute('data-title', 'À propos | CaninCompris');
-    } else {
-        logoButton.setAttribute('data-page', 'home');
-        logoButton.setAttribute('data-title', 'Accueil | CaninCompris');
-    }
-}
+// function updateLogoButton(currentPage) {
+//     const logoButton = document.getElementById('logo-button');
+//     if (currentPage === 'home') {
+//         logoButton.setAttribute('data-page', 'about');
+//         logoButton.setAttribute('data-title', 'À propos | CaninCompris');
+//     } else {
+//         logoButton.setAttribute('data-page', 'home');
+//         logoButton.setAttribute('data-title', 'Accueil | CaninCompris');
+//     }
+// }
 
-function togglePage() {
-    const logoButton = document.getElementById('logo-button');
-    const page = logoButton.getAttribute('data-page');
-    const title = logoButton.getAttribute('data-title');
-    loadPage(page, title);
-}
+// function togglePage() {
+//     const logoButton = document.getElementById('logo-button');
+//     const page = logoButton.getAttribute('data-page');
+//     const title = logoButton.getAttribute('data-title');
+//     loadPage(page, title);
+// }
 
 // Carousel functionality
-function initializeCarousel() {
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel .slide');
-    const totalSlides = slides.length;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.style.transform = `translateX(${(i - index) * 100}%)`;
-        });
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        showSlide(currentSlide);
-    }
-
-    setInterval(nextSlide, 3000);
-
-    // Initialize the carousel with the first slide
-    showSlide(currentSlide);
-}
