@@ -395,6 +395,10 @@ footer .footer-bottom a {
     footer .social-icon i {
         font-size: 3.5rem;
     }
+    .container {
+        width: calc(160px * 0.866);
+        height: 160px;
+    }
 }
 
 @media (max-width: 450px) {
@@ -408,6 +412,10 @@ footer .footer-bottom a {
 
     footer .social-icon i {
         font-size: 5.5rem;
+    }
+    .container {
+        width: calc(60px * 0.866);
+        height: 60px;
     }
 }
 
